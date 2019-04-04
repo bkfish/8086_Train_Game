@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">title</title>
+    <style type="text/css">
+        tr {
+            color: blue;
+            size: 18px;
+        }
+        tr td{
+            color: blue;
+            size: 18px;
+        }
+        td{
+            color: blue;
+            size: 18px;
+        }
+        text{
+            color: blue;
+            size: 18px;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <tr th:each="entries,stat:${words}" th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}">
+        <td ><font size="32" color="green" th:text="${entries['name']}" ></font></td>
+        &emsp;
+        <span th:if="${(stat.count)%5==0}" th:utext="${'<br><br>'}"></span>
+    </tr>
+</p>
+</body>
+</html>
